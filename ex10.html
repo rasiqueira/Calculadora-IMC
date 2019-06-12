@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cálculo do IMC</title>
+</head>
+<body>
+    <h1><strong>CALCULADORA DO IMC</strong></h1>
+   <h1>Informe sua altura: <input type="number" id="altura"> mt</h1> 
+   <h1>Informe seu peso: <input type="number" id="peso"> kg</h1>
+   <input type="button" value="verificar" onclick="verifica()">
+   <div id="res">
+
+    </div>
+   <script>
+    function verifica() { 
+        var altura = window.document.getElementById('altura')
+        var peso = window.document.getElementById('peso')
+        var res = window.document.getElementById('res')
+        var alt = Number(altura.value)
+        var pes = Number(peso.value)
+        var imc = pes/(alt*alt)
+        imc = imc.toFixed(2)
+        if(imc<17){
+            res.innerHTML=`<p>Seu IMC é ${imc} e você está muito abaixo do peso</p>`
+        } else if(imc<18.49) {
+            res.innerHTML=`<p>Seu IMC é ${imc} e você está abaixo do peso</p>`
+        } else if(imc<24.99) {
+            res.innerHTML=`<p>Seu IMC é ${imc} e você está com peso normal</p>`
+        } else if(imc<29.99) {
+            res.innerHTML=`<p>Seu IMC é ${imc} e você está acima do peso</p>`
+        } else if(imc<34.99) {
+            res.innerHTML=`<p>Seu IMC é ${imc} e você está com obesidade grau 1</p>`
+        } else if(imc<39.99) {
+            res.innerHTML=`<p>Seu IMC é ${imc} e você está com obesidade severa</p>`
+        } else {
+            res.innerHTML=`<p>Seu IMC é ${imc} e você está com obesidade morbida</p>`
+        }
+   }
+   </script>
+</body>
+</html>
